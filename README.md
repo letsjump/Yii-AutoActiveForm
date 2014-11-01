@@ -3,4 +3,4 @@ Yii.AutoActiveForm
 
 Gianpaolo Scrigna <letsjump@gmail.com> 2013
 
-A faster, simpler, access controlled method for Yii CActiveForm
+A faster, simpler, access controlled method for Yii CActiveForm 1.1
