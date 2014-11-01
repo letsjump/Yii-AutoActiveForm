@@ -1,9 +1,26 @@
 <?php
 
 /**
- * Classe per estendere le form e
- * crearle in base ai requisiti del
- * tema amanda
+ * Yii-AutoActiveForm
+ * A faster way to setup form fields in Yii Framework 1.1
+ *
+ * @author  Gianpaolo Scrigna <letsjump@gmail.com>
+ * @link    http://github.com/letsjump/Yii.AutoActiveForm
+ * @license http://www.opensource.org/licenses/bsd-license.php
+ * @version $Id: CustomForm.php 2 2014-11-01 16:15 letsjump $
+ * PUT THIS FILE IN YOUR
+ */
+
+/**
+ * Put this file in your application.components directory
+ * then extend the "form" widget in your views:
+ *
+ * $form=$this->beginWidget('application.components.CustomForm',
+ * 		array(
+ * 		... your form settings
+ * 		)
+ * );
+ *
  */
 
 Yii::import('ext.autoActiveForm.AutoActiveForm');
@@ -14,8 +31,8 @@ class CustomForm extends AutoActiveForm
 	
 	public function init() {
 		parent::init();
+		// path to field templates
 		$this->viewFile = 'ext.autoActiveForm.views.default';
-		//Yii::app()->clientScript->registerScript('autoActiveFormTooltip', '$( document ).tooltip();', CClientScript::POS_READY);
 	}
 	
 	public function run() {

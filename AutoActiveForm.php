@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Yii-AutoActiveForm
+ * A faster way to setup form fields in Yii Framework 1.1
+ *
+ * @author  Gianpaolo Scrigna <letsjump@gmail.com>
+ * @link    http://github.com/letsjump/Yii.AutoActiveForm
+ * @license http://www.opensource.org/licenses/bsd-license.php
+ * @version $Id: AutoActiveForm.php 2 2014-11-01 16:13 letsjump $
+ */
 class AutoActiveForm extends CActiveForm
 {
 
@@ -9,7 +18,7 @@ class AutoActiveForm extends CActiveForm
 
     public $viewFile = 'default';
 
-    public $accessControl = true;
+    public $accessControl = false;
 
 	public $guestRoleName = 'guest'; // sistemare in base a CWebUser.php user->GuestName
 
