@@ -1,6 +1,14 @@
-Yii.AutoActiveForm
-==================
+# AutoActiveForm
 
-Gianpaolo Scrigna <letsjump@gmail.com> 2013
+Provide a faster way to draw html form fields in Yii 1.1.
+It also has an Access control system to give read / write access to fields according Yii RBAC access rules.
 
-A faster, simpler, access controlled method for Yii CActiveForm 1.1
+## Simple example
+this code
+```php
+echo $form->autoTextField($model, 'Name');
+```
+generates
+
+
+
