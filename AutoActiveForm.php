@@ -9,12 +9,15 @@
  * @license http://www.opensource.org/licenses/bsd-license.php
  * @version $Id: AutoActiveForm.php 2 2014-11-01 16:13 letsjump $
  */
+
 class AutoActiveForm extends CActiveForm
 {
 
     public $labelHtmlOptions = Array();
 
     public $errorHtmlOptions = Array();
+
+	public $viewPath = 'ext.autoActiveForm.views';
 
     public $viewFile = 'default';
 
@@ -28,7 +31,7 @@ class AutoActiveForm extends CActiveForm
 
 	public $labelToPlaceholder = false;
 
-    public $extractFromHtmlOptions = Array('errorHtmlOptions', 'labelHtmlOptions', 'aaf_options', 'roValue', 'alternateView', 'itemTemplate');
+    public $extractFromHtmlOptions = Array('errorHtmlOptions', 'labelHtmlOptions', 'jsOptions', 'roValue', 'viewFile', 'itemTemplate');
 
     protected $params;
 
@@ -430,7 +433,7 @@ class AutoActiveForm extends CActiveForm
 
     protected function write()
     {
-		$viewFile = (!empty($this->params->alternateView)) ?'ext.autoActiveForm.views.' . $this->params->alternateView : $this->viewFile;
+		$viewFile = (!empty($this->params->viewFile)) ? $this->params->viewFile : $this->viewFile;
         $data = new stdClass();
         $data->label = $this->createLabel();
         if($this->params->data != null) {
@@ -439,7 +442,7 @@ class AutoActiveForm extends CActiveForm
             $data->field = call_user_func($this->params->method, $this->params->model, $this->params->attribute, $this->params->htmlOptions);
         }
         $data->error = $this->error($this->params->model,$this->params->attribute, $this->params->errorHtmlOptions);
-        return $this->render($viewFile, $data, TRUE);
+        return $this->render($this->viewPath . '.' . $viewFile, $data, TRUE);
     }
 
     protected function read()
@@ -456,7 +459,7 @@ class AutoActiveForm extends CActiveForm
 		}
         $data->field = str_replace('{value}', $roValue, $this->roTemplate);
         $data->error = "";
-        return $this->render($this->viewFile, $data, TRUE);
+        return $this->render($this->viewPath . '.' . $this->viewFile, $data, TRUE);
     }
 
     protected function getFieldsPermissions($model)

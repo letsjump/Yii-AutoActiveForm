@@ -31,8 +31,10 @@ class CustomForm extends AutoActiveForm
 	
 	public function init() {
 		parent::init();
-		// path to field templates
-		$this->viewFile = 'ext.autoActiveForm.views.default';
+		// >>> path to field templates if needed <<<
+		// $this->viewPath = 'webroot.themes.THEME_NAME.views.layouts.FIELD_THEME_SUBFOLDER';
+		// view name
+		$this->viewFile = 'default';
 	}
 	
 	public function run() {
@@ -99,7 +101,7 @@ eom;
 		    //'open' => new CJavaScriptExpression($jsOpen)
 	    );
 
-	    $options = (is_array($this->params->aaf_options)) ? CMap::mergeArray($defaultOptions, $this->params->aaf_options) : $defaultOptions;
+	    $options = (is_array($this->params->aaf_options)) ? CMap::mergeArray($defaultOptions, $this->params->jsOptions) : $defaultOptions;
 
         //$field = $this->hiddenField($model,$attribute, Array('id'=>'hidden_'.$attribute, 'value'=>$hiddenId));
         $field = $this->hiddenField($model,$attribute, Array('value'=>$hiddenId));
@@ -137,7 +139,7 @@ eom;
                 'htmlOptions'=>$this->params->htmlOptions,
 				'cssFile'=>false,
 				'language'=>'it',
-                'options'=>$this->params->aaf_options
+                'options'=>$this->params->jsOptions
 			), true
 		);
 	}
@@ -167,7 +169,7 @@ eom;
 //                            'model' =>        $this->params->model,
 //                            //'value' =>        $this->params->model->isNewRecord ? '' : $this->params->model->$attribute,
 //                            'attribute' =>    $this->params->attribute,
-//                            'options' =>    $this->params->aaf_options
+//                            'options' =>    $this->params->jsOptions
 //						), true
 //		);
 //	}
