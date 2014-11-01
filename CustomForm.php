@@ -142,57 +142,50 @@ eom;
 		);
 	}
 
-
-	public function autoTinyMce($model, $attribute, $htmlOptions=Array())
-	{
-		$method = Array('self', 'tinyMce');
-		return $this->buildField($method, $model, $attribute, NULL, $htmlOptions);
-	}
-
-    protected function tinyMce()
-	{
-		return $this->widget('application.extensions.KRichTextEditor', array(
-                            'model' =>        $this->params->model,
-                            //'value' =>        $this->params->model->isNewRecord ? '' : $this->params->model->$attribute,
-                            'attribute' =>    $this->params->attribute,
-                            'options' =>    $this->params->aaf_options
-						), true
-		);
-	}
-
-	public function autoChosen($model, $attribute, $data, $htmlOptions=Array())
-	{
-		$method = Array('self', 'ChosenMultiSelect');
-		return $this->buildField($method, $model, $attribute, $data, $htmlOptions);
-	}
-
-    protected function ChosenMultiSelect()
-	{
-		Yii::import('application.extensions.yii-chosen.Chosen');
-        return Chosen::activeMultiSelect($this->params->model, $this->params->attribute, $this->params->data, $this->params->htmlOptions);
-	}
-
-	public function error($model, $field, $htmlOptions = Array(), $enableAjaxValidation = true, $enableClientValidation = true)
-	{
-		return str_replace('div', 'span', parent::error($model, $field, $htmlOptions, $enableAjaxValidation, $enableClientValidation));
-	}
-	
-	public function errorSummary($models,$header=null,$footer=null,$htmlOptions=array())
-	{
-		    if(!$this->enableAjaxValidation && !$this->enableClientValidation)
-        return CHtml::errorSummary($models,$header,$footer,$htmlOptions);
-
-			if(!isset($htmlOptions['id']))
-				$htmlOptions['id']=$this->id.'_es_';
-			$htmlOptions['class']=CHtml::$errorSummaryCss;
-			if($header===null)
-				$header='<p>'.Yii::t('yii','Please fix the following input errors:').'</p>';
-			$htmlOptions['style']=isset($htmlOptions['style']) ? rtrim($htmlOptions['style'],';').';display:none' : 'display:none';
+	/**
+	 * This is a special method to call TinyMce extension.
+	 * Install it before use
+	 * http://www.yiiframework.com/extension/tinymce/
+	 *
+	 * CREATE YOUR OWN METHOD FOR YOUR OWN FIELD EXTENSION!!!
+	 *
+	 * @param       $model
+	 * @param       $attribute
+	 * @param       $data
+	 * @param array $htmlOptions
+	 * @return html
+	 */
+//	public function autoTinyMce($model, $attribute, $htmlOptions=Array())
+//	{
+//		$method = Array('self', 'tinyMce');
+//		return $this->buildField($method, $model, $attribute, NULL, $htmlOptions);
+//	}
+//
+//    protected function tinyMce()
+//	{
+//		return $this->widget('application.extensions.KRichTextEditor', array(
+//                            'model' =>        $this->params->model,
+//                            //'value' =>        $this->params->model->isNewRecord ? '' : $this->params->model->$attribute,
+//                            'attribute' =>    $this->params->attribute,
+//                            'options' =>    $this->params->aaf_options
+//						), true
+//		);
+//	}
 
 
-			return CHtml::tag('div',$htmlOptions,$header.$footer);
 
-	}
+//	public function autoChosen($model, $attribute, $data, $htmlOptions=Array())
+//	{
+//		$method = Array('self', 'ChosenMultiSelect');
+//		return $this->buildField($method, $model, $attribute, $data, $htmlOptions);
+//	}
+//
+//    protected function ChosenMultiSelect()
+//	{
+//		Yii::import('application.extensions.yii-chosen.Chosen');
+//        return Chosen::activeMultiSelect($this->params->model, $this->params->attribute, $this->params->data, $this->params->htmlOptions);
+//	}
+
 }
 
 ?>
