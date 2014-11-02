@@ -30,8 +30,8 @@ generates
 <div class="fieldcontainer">
 	<label for="Model_cr_date">Data Creazione</label>
 	<span class="field">
-		<input id="Richiesta_cr_date" name="Richiesta[cr_date]" type="text" value="05/07/2014" />
-		<span class="errorMessage" id="Richiesta_cr_date_em_" style="display:none"></span>
+		<input id="Model_cr_date" name="Model[cr_date]" type="text" value="05/07/2014" />
+		<span class="errorMessage" id="Model_cr_date_em_" style="display:none"></span>
 	</span>
 </div>
 <script type="text/javascript">
