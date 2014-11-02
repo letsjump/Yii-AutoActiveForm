@@ -61,7 +61,7 @@ class AutoActiveForm extends CActiveForm
 		'jsOptions',
 		'roValue',
 		'viewFile',
-		'itemTemplate'
+		//'itemTemplate'
 	);
 
 	/**

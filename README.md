@@ -41,17 +41,17 @@ jQuery('#Model_cr_date').datepicker(jQuery.extend({showMonthAfterYear:false},jQu
 </script>
 ```
 ## Benefits
-+ It extends CActiveForms native method so you can use every field method like $form->activeInputField, $form->activePasswordField, $form->activeCheckbox (and so on...) just replacing "active" with "auto" in method invocation. Example: $form->activeTextArea(...) become $form->autoTextArea(...)
-+ It can be extended so you can use your field generator plugin like Chosen or TinyMce with just some line of code in CustomForm.php configuration
-+ You can change form / field configuration globally, locally (just a form) or just for a field.
-+ You can alwais use its native method, EG: $form->label(...), $form->activeTextField(...), $form->error(...)
-+ A complete access control to draw field according with user permissions
++ 	It extends CActiveForms native method so you can use every field method like $form->activeInputField, 	$form->activePasswordField, $form->activeCheckbox (and so on...) just replacing "active" with "auto" in method 	invocation. Example: $form->activeTextArea(...) become $form->autoTextArea(...)
++ 	It can be extended so you can use your field generator plugin like Chosen or TinyMce with just some line of 	code in CustomForm.php configuration
++ 	You can change form / field configuration globally, locally (just a form) or just for a field.
++ 	You can alwais use its native method, EG: $form->label(...), $form->activeTextField(...), $form->error(...)
++ 	A complete access control to draw field according with user permissions
 
 ## Usage
-- put AutoActiveForm folder in your ext directory
-- copy CustomForm.php in your components directory
-- modify Yii::import('ext.autoActiveForm.AutoActiveForm') according to fit the extension's path alias
-- call Yii ActiveForm widget with path of your custom form:
+- 	put AutoActiveForm folder in your ext directory
+- 	copy CustomForm.php in your components directory
+- 	modify Yii::import('ext.autoActiveForm.AutoActiveForm') according to fit the extension's path alias
+- 	call Yii ActiveForm widget with path of your custom form:
 ```php
 $form=$this->beginWidget('application.components.CustomForm',
 	array(
@@ -59,7 +59,7 @@ $form=$this->beginWidget('application.components.CustomForm',
 	)
 );
 ```
-- call every CActiveForm field object replacing his "active" prefix with "auto"
+- 	call every CActiveForm field object replacing his "active" prefix with "auto"
 ```php
 $form->autoTextField($model, 'surname');
 $form->autoPassword($model, 'pass');
@@ -68,3 +68,28 @@ $form->autoDropDownList($model, ',my_list', Array(1=>'One little indian', 2=>'Tw
 ```
 
 ## Advanced field configuration
+### Add field HTML options
+As in CActiveForm you'll pass configurations using $htmlOptions Array:
+```php
+$form->autoTextField($model, 'surname', Array('class'=>'oh_my_god', 'style'=>'color: green'));
+```
+### Add label or error HTML options
+If you have to pass configurations to the label or error, AutoActiveForm provides two special $htmlOptions arrays:
+- labelHtmlOptions (array)
+- errorHtmlOptions (array)
+Example:
+```php
+$form->autoTextField($model, 'gender', Array('labelHtmlOptions'=>Array('class'=>'required'));
+$form->autoTextField($model, 'age', Array('errorHtmlOptions'=>Array('class'=>'blink'));
+```
+### Additional configuration settings
+In addition to "labelHtmlOptions" and "errorHtmlOptions", you can pass some other arrays of parameters to $htmlOptions array:
+- jsOptions: 	special options used in complex jQuery fields like TinyMce
+- roValue: 		read only value for that field
+- viewFile: 	alternative view for that field
+
+### Set configurations globally
+...
+
+### Set configurations locally (this form)
+...
