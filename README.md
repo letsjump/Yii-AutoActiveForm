@@ -84,7 +84,7 @@ $form->autoTextField($model, 'gender', Array('labelHtmlOptions'=>Array('class'=>
 $form->autoTextField($model, 'age', Array('errorHtmlOptions'=>Array('class'=>'blink'));
 ```
 ### Additional configuration settings
-In addition to "labelHtmlOptions" and "errorHtmlOptions", you can pass some other arrays of parameters to $htmlOptions array:
+In addition to "labelHtmlOptions" and "errorHtmlOptions", you can pass some other array of parameters to $htmlOptions array:
 - jsOptions: 	special options used in complex jQuery fields like TinyMce
 - roValue: 		read only value for this field
 - viewFile: 	alternative view just for this field
