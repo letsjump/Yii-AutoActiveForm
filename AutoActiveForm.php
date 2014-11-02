@@ -473,7 +473,7 @@ class AutoActiveForm extends CActiveForm
 			}
 		}
 		$this->params->htmlOptions = $htmlOptions;
-    }
+	}
 
 	/**
 	 * Create a CHtml label and / or add a placeholder property to its field
