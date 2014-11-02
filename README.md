@@ -43,7 +43,8 @@ jQuery('#Model_cr_date').datepicker(jQuery.extend({showMonthAfterYear:false},jQu
 ## Benefits
 + 	It extends CActiveForms native method so you can use every field method like $form->activeInputField, 	$form->activePasswordField, $form->activeCheckbox (and so on...) just replacing "active" with "auto" in method 	invocation. Example: $form->activeTextArea(...) become $form->autoTextArea(...)
 + 	It can be extended so you can use your field generator plugin like Chosen or TinyMce with just some line of 	code in CustomForm.php configuration
-+ 	You can change form / field configuration globally, locally (just a form) or just for a field.
++ 	You can change configuration globally or locally: just one form or just one field.
++	Field template is mastered as a normal Yii view
 + 	You can alwais use its native method, EG: $form->label(...), $form->activeTextField(...), $form->error(...)
 + 	A complete access control to draw field according with user permissions
 
@@ -67,7 +68,7 @@ $form->autoCheckBox($model, 'yes_no');
 $form->autoDropDownList($model, ',my_list', Array(1=>'One little indian', 2=>'Two little indians'));
 ```
 
-## Advanced field configuration
+## Advanced fields configuration
 ### Add field HTML options
 As in CActiveForm you'll pass configurations using $htmlOptions Array:
 ```php
@@ -85,8 +86,8 @@ $form->autoTextField($model, 'age', Array('errorHtmlOptions'=>Array('class'=>'bl
 ### Additional configuration settings
 In addition to "labelHtmlOptions" and "errorHtmlOptions", you can pass some other arrays of parameters to $htmlOptions array:
 - jsOptions: 	special options used in complex jQuery fields like TinyMce
-- roValue: 		read only value for that field
-- viewFile: 	alternative view for that field
+- roValue: 		read only value for this field
+- viewFile: 	alternative view just for this field
 
 ### Set configurations globally
 ...
