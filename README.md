@@ -1,6 +1,6 @@
 # AutoActiveForm
 
-In a web full of complex html form templates, this extension provides a faster way to draw fields in Yii Framework 1.1.
+In a web full of *complex html form templates*, this extension provides a **faster way to draw fields** in Yii Framework 1.1.
 It also has an *Access control system* to give read / write access to every field according *Yii RBAC access rules*.
 
 ## Simple example
