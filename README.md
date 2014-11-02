@@ -59,3 +59,12 @@ $form=$this->beginWidget('application.components.CustomForm',
 	)
 );
 ```
+- call every CActiveForm field object replacing his "active" prefix with "auto"
+```php
+$form->autoTextField($model, 'surname');
+$form->autoPassword($model, 'pass');
+$form->autoCheckBox($model, 'yes_no');
+$form->autoDropDownList($model, ',my_list', Array(1=>'One little indian', 2=>'Two little indians'));
+```
+
+## Advanced field configuration
