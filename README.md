@@ -45,6 +45,7 @@ jQuery('#Model_cr_date').datepicker(jQuery.extend({showMonthAfterYear:false},jQu
 + It can be extended so you can use your field generator plugin like Chosen or TinyMce with just some line of code in CustomForm.php configuration
 + You can change form / field configuration globally, locally (just a form) or just for a field.
 + You can alwais use its native method, EG: $form->label(...), $form->activeTextField(...), $form->error(...)
++ A complete access control to draw field according with user permissions
 ## Usage
 - put AutoActiveForm folder in your ext directory
 - copy CustomForm.php in your components directory
