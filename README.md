@@ -41,11 +41,11 @@ jQuery('#Model_cr_date').datepicker(jQuery.extend({showMonthAfterYear:false},jQu
 </script>
 ```
 ## Benefits
-+ 	It extends CActiveForms native method so you can use every field method like `$form->activeInputField`, 	`$form->activePasswordField`, `$form->activeCheckbox` (and so on...) just replacing `active` with `auto` in method invocation. Example: `$form->activeTextArea(...)` become `$form->autoTextArea(...)`
-+ 	It can be extended so you can use your field generator plugin like Chosen or TinyMce with just some line of 	code in your *CustomForm.php* configuration file
-+ 	You can change configuration globally or locally: just one form or just one field.
-+	Field template is mastered as a normal Yii view
-+ 	You can alwais use its native method, EG: `$form->label(...)`, `$form->activeTextField(...)` and `$form->error(...)`
++ 	It extends CActiveForms native method so you can use every field method like `$form->activeInputField`, 	`$form->activePasswordField`, `$form->activeCheckbox` (and so on...) just replacing `active` with `auto` in method invocation. Example: `$form->activeTextArea(...)` becomes `$form->autoTextArea(...)`
++ 	**It can be extended** so you can use your *field generator plugin* like **Chosen** or **TinyMce** with just some line of 	code in your *CustomForm.php* configuration file
++ 	You can change configuration **globally** or locally: just **one form** or just **one field**.
++	Field templates are mastered as normal **Yii view files**
++ 	You can alwais use `CActiveForm` native method, EG: `$form->label(...)`, `$form->activeTextField(...)` and `$form->error(...)`
 + 	A complete **access control** to draw field according with **user permissions**
 
 ## Usage
