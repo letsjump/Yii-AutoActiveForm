@@ -49,7 +49,8 @@ jQuery('#Model_cr_date').datepicker(jQuery.extend({showMonthAfterYear:false},jQu
 ## Usage
 - put AutoActiveForm folder in your ext directory
 - copy CustomForm.php in your components directory
-- call the Yii ActiveForm widget with path of your custom form:
+- modify Yii::import('ext.autoActiveForm.AutoActiveForm') according to fit the extension's path alias
+- call Yii ActiveForm widget with path of your custom form:
 ```php
 $form=$this->beginWidget('application.components.CustomForm',
 	array(
