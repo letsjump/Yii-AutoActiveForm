@@ -84,7 +84,7 @@ class AutoActiveForm extends CActiveForm
 	 * @var string name of the access method
 	 *             for backward or other component method compatibiliy;
 	 */
-	public $accessMethod = "accessRules";
+	public $accessMethodName = "accessRules";
 
 	/**
 	 * Initializes the widget.
@@ -490,7 +490,8 @@ class AutoActiveForm extends CActiveForm
 	 * @return string CHtml::labelEx Label if $showLabels is TRUE
 	 *                else returns an empty string
 	 */
-	protected function createLabel() {
+	protected function createLabel()
+	{
 		$attribute = $this->params->attribute;
 		$model     = $this->params->model;
 		if ($this->labelToPlaceholder === true
@@ -586,11 +587,11 @@ class AutoActiveForm extends CActiveForm
 	 */
 	protected function getFieldsPermissions($model)
 	{
-		if(empty($this->_fieldsPermissions) && !empty($model->accessRules))
+		$methodName = $this->accessMethodName; // for backward compatibility
+		if(empty($this->_fieldsPermissions) && !empty($model->$methodName))
 		{
 			$scenario = $model->getScenario();
 			$permissions = new stdClass();
-			$method = $this->accessMethod; // for backward compatibility
 			foreach($model->$method as $rule=>$opeArray)
 			{
 				if(
