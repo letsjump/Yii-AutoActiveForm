@@ -81,6 +81,12 @@ class AutoActiveForm extends CActiveForm
 	public $roTemplate = "<span class='read'>{value}&nbsp;</span>";
 
 	/**
+	 * @var string name of the access method
+	 *             for backward or other component method compatibiliy;
+	 */
+	public $accessMethod = "accessRules";
+
+	/**
 	 * Initializes the widget.
 	 * This renders the form open tag.
 	 */
@@ -584,7 +590,8 @@ class AutoActiveForm extends CActiveForm
 		{
 			$scenario = $model->getScenario();
 			$permissions = new stdClass();
-			foreach($model->accessRules as $rule=>$opeArray)
+			$method = $this->accessMethod; // for backward compatibility
+			foreach($model->$method as $rule=>$opeArray)
 			{
 				if(
 					($rule != Yii::app()->user->guestName && Yii::app()->user->checkAccess($rule))
