@@ -1,7 +1,7 @@
 # AutoActiveForm
 
 In a web full of *complex html form templates*, this extension provides a **faster way to draw fields** in Yii Framework 1.1.
-It also has an *Access control system* to give read / write access to every field according *Yii RBAC access rules*.
+It also has an **access control system** in order to give *read / hide / write*  access to every field according to *Yii RBAC Access Rules*.
 
 ## Simple example
 this code
@@ -41,11 +41,11 @@ jQuery('#Model_cr_date').datepicker(jQuery.extend({showMonthAfterYear:false},jQu
 </script>
 ```
 ## Benefits
-+ 	It extends CActiveForms native method so you can use every field method like `$form->activeInputField`, 	`$form->activePasswordField`, `$form->activeCheckbox` (and so on...) just replacing `active` with `auto` in method invocation. Example: `$form->activeTextArea(...)` becomes `$form->autoTextArea(...)`
++ 	It extends `CActiveForms` native method so you can invoke every field (like `$form->activeInputField`, 	`$form->activePasswordField`, `$form->activeCheckbox` and so on...) just replacing `active` with `auto` in the original name. Example: `$form->activeTextArea(...)` becomes `$form->autoTextArea(...)`
 + 	**It can be extended** so you can use your *field generator plugin* like **Chosen** or **TinyMce** with just some line of 	code in your *CustomForm.php* configuration file
 + 	You can change configuration **globally** or locally: just **one form** or just **one field**.
 +	Field templates are mastered as normal **Yii view files**
-+ 	You can alwais use `CActiveForm` native method, EG: `$form->label(...)`, `$form->activeTextField(...)` and `$form->error(...)`
++ 	You can also use `CActiveForm` native method, EG: `$form->label(...)`, `$form->activeTextField(...)` and `$form->error(...)`
 + 	A complete **access control** to draw field according with **user permissions**
 
 ## Usage
@@ -78,6 +78,7 @@ $form->autoTextField($model, 'surname', Array('class'=>'oh_my_god', 'style'=>'co
 If you need to pass configurations to the *label* or *error* HTML tag, *AutoActiveForm* provides two special array of parameters inside `$htmlOptions`:
 - labelHtmlOptions (array)
 - errorHtmlOptions (array)
+
 Example:
 ```php
 $form->autoTextField($model, 'gender', Array('labelHtmlOptions'=>Array('class'=>'required'));
