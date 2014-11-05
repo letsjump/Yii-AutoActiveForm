@@ -76,8 +76,8 @@ $form->autoTextField($model, 'surname', Array('class'=>'oh_my_god', 'style'=>'co
 ```
 ### Add label or error HTML options
 If you need to pass configurations to the *label* or *error* HTML tag, *AutoActiveForm* provides two special array of parameters inside `$htmlOptions`:
-- labelHtmlOptions (array)
-- errorHtmlOptions (array)
+- `labelHtmlOptions` (array)
+- `errorHtmlOptions` (array)
 
 Example:
 ```php
@@ -86,19 +86,19 @@ $form->autoTextField($model, 'age', Array('errorHtmlOptions'=>Array('class'=>'bl
 ```
 ### Additional field configuration settings
 In addition to `labelHtmlOptions` and `errorHtmlOptions`, you can pass some other array of parameters to `$htmlOptions`:
-- jsOptions: 	special options used in complex jQuery fields like TinyMce
-- roValue: 		read only value for this field
-- viewFile: 	alternative view just for this field
+- `jsOptions`: 	(array) special options used in complex jQuery fields like TinyMce
+- `roValue`: 	(string) read only value for this field
+- `viewFile`: 	(string) alternative view just for this field
 
 ### Form configurations
 *AutoActiveForm* has some special configuration that changes the default behavior:
-- $viewPath: 			(string) path alias to the view's folder
-- $viewFile: 			(string) name of the default view
-- $accessControl: 		(bool) enable / disable access control
-- $addHtmlOptions:		(array) add an array of $htmlOptions to every field of the form
-- $allowAction:			(string) action to perform when access control is disabled. Usually the action that draw field with label and error
-- $showLabels:			(bool) enable / disable the label generator. Usually set to false when use placeholder
-- $labelToPlaceholder:	(bool) automatically generates a `placeholder=""` attribute with the label's text for every field
+- `$viewPath`: 			(string) path alias to the view's folder
+- `$viewFile`: 			(string) name of the default view
+- `$accessControl`: 		(bool) enable / disable access control
+- `$addHtmlOptions`:		(array) add an array of $htmlOptions to every field of the form
+- `$allowAction`:			(string) action to perform when access control is disabled. Usually the action that draw field with label and error
+- `$showLabels`:			(bool) enable / disable the label generator. Usually set to false when use placeholder
+- `$labelToPlaceholder`:	(bool) automatically generates a `placeholder=""` attribute with the label's text for every field
 
 #### Set form configurations globally
 To set configurations globally, you'll have to act in the `init()` method of your `customForm` class:
@@ -133,7 +133,7 @@ $form=$this->beginWidget('application.components.customForm',
 		)
 	);
 ```
-If you also need to add some $htmlOptions to every field of this form, there is a special $addHtmlOptions parameter:
+If you also need to add some $htmlOptions to every field of this form, there is a special `addHtmlOptions` parameter:
 ```php
 $form=$this->beginWidget('application.components.customForm',
 		array(
