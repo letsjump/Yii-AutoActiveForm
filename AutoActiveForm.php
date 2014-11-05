@@ -35,6 +35,11 @@ class AutoActiveForm extends CActiveForm
 	public $accessControl = false;
 
 	/**
+	 * @var array $AutoActiveForm local form configuration
+	 */
+	public $autoActiveForm = Array();
+
+	/**
 	 * @var string $allowAction The action to perform when access control is disabled
 	 *                          Usually the action that draw field with label and error
 	 */
@@ -92,6 +97,7 @@ class AutoActiveForm extends CActiveForm
 	 */
 	public function init()
 	{
+		$this->setLocalOptions();
 		parent::init();
 	}
 
@@ -102,6 +108,24 @@ class AutoActiveForm extends CActiveForm
 	public function run()
 	{
 		parent::run();
+	}
+
+	/**
+	 * Global to local parameters written
+	 * into the widget configuration array:
+	 * $this->beginWidget('application.components.customForm', array(
+	 * 		'autoActiveForm'=>Array(
+	 * 			'accessControl' => false, // SET accessControl LOCALLY
+	 * 		),
+	 * 		...
+	 * ));
+	 */
+	private function setLocalOptions()
+	{
+		foreach ($this->autoActiveForm as $name => $option)
+		{
+			if (isset($this->$name)) $this->$name = $option;
+		}
 	}
 
 	/**

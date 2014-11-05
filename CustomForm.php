@@ -31,10 +31,16 @@ class CustomForm extends AutoActiveForm
 	
 	public function init() {
 		parent::init();
-		// >>> path to field templates if needed <<<
-		// $this->viewPath = 'webroot.themes.THEME_NAME.views.layouts.FIELD_THEME_SUBFOLDER';
-		// view name
-		$this->viewFile = 'default';
+		/* =====================================
+		 * CONFIGURE HERE YOUR GLOBAL OPTIONS!!!
+		 * ================================== */
+
+		/* >>>> ENABLE ACCESS CONTROL */
+//		$this->accessControl = true;
+		/* >>>> CUSTOM TEMPLATE FOLDER */
+//		$this->viewPath = 'webroot.themes.THEME_NAME.views.layouts.FIELD_THEME_SUBFOLDER';
+		/* >>>> CUSTOM DEFAULT VIEW NAME */
+//		$this->viewFile = 'default';
 	}
 	
 	public function run() {
