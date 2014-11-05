@@ -159,8 +159,7 @@ $form=$this->beginWidget('application.components.customForm',
 In the above example, every field of the generated form will have the html property `class="green-border"` automagically setted.
 ## Access Control
 In order to give access control to the fields, you must create the `getFieldAccessRules()` method in its `CActiveRecord` parent model.
-`getFieldAccessRules()` returns a *multidimensional array* similar to `CActiveRecord`'s `rules()` method.
-This array is composed by a *key* which is the *RBAC rule* that fields must respect, and the *value* of this key that is a *sub-array* where:
+`getFieldAccessRules()` returns a *multidimensional array* similar to `CActiveRecord`'s `rules()` method.<br/>This array is composed by a *key* which is the **RBAC rule** that fields must respect, and the *value* of this key that is a **sub-array** where:
 - the *first* item is a **comma separated list of fields**
 - the *second* item is the **action** that the access control **must run** (usually read / write)
 - the *third* optional item is the **scenario** in which the rule should apply
