@@ -40,6 +40,12 @@ class AutoActiveForm extends CActiveForm
 	public $autoActiveForm = Array();
 
 	/**
+	 * @var array $addHtmlOptions add $htmlOptions elements locally or globally
+	 *                               to every field
+	 */
+	public $addHtmlOptions = Array();
+
+	/**
 	 * @var string $allowAction The action to perform when access control is disabled
 	 *                          Usually the action that draw field with label and error
 	 */
@@ -479,6 +485,9 @@ class AutoActiveForm extends CActiveForm
 	 */
 	protected function extractOptions($htmlOptions)
 	{
+		if (!empty($this->addHtmlOptions) && is_array($this->addHtmlOptions))
+			$htmlOptions = CMap::mergeArray($this->addHtmlOptions, $htmlOptions);
+
 		foreach($this->extractFromHtmlOptions as $option)
 		{
 			if(array_key_exists($option, $htmlOptions))
