@@ -158,4 +158,34 @@ $form=$this->beginWidget('application.components.customForm',
 ```
 In the above example, every field of the generated form will have the html property `class="green-border"` automagically setted.
 ## Access Control
-Works, but I'm writing some documentation
+In order to give access control to the fields, you must create the `getFieldAccessRules()` method in its `CActiveRecord` parent model.
+`getFieldAccessRules()` returns a *multidimensional array* similar to `CActiveRecord`'s `rules()` method.
+This array is composed by a *key* which is the *RBAC rule* that fields must respect, and the *value* of this key that is a *sub-array* where:
+- the *first* item is a **comma separated list of fields**
+- the *second* item is the **action** that the access control **must run** (usually read / write)
+- the *third* optional item is the **scenario** in which the rule should apply
+```php
+class myDatabaseTable extends CActiveRecord {
+	...
+	return Array(
+		'guest' => Array(
+			Array('my_field_a, my_field_b',
+				'read',
+				'on' => 'register-scenario'
+			),
+		),
+		'staffThatCanDoSomething' => Array(
+			Array('my_field_c, my_field_d, my_field_f',
+				'read',
+				'on' => 'my-next-scenario'
+			),
+			Array('my_field_a, my_field_b',
+				'write',
+				'on' => 'my-next-scenario'
+			),
+		),
+	);
+	...
+}
+```
+Watch out: Even if a field is in *read mode* or in *hide mode*, you can't prevent that an advanced user / cracker is **passing parameters** to your action's request, so **YOU ARE ADVICED** to take appropriate actions to prevent this, EG: using model's filters depending on scenario, or *unsetting unused parameters from request before processing it*.

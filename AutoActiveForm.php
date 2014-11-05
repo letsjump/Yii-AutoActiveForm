@@ -95,7 +95,7 @@ class AutoActiveForm extends CActiveForm
 	 * @var string name of the access method
 	 *             for backward or other component method compatibiliy;
 	 */
-	public $accessMethodName = "accessRules";
+	public $accessMethodName = "fieldAccessRules";
 
 	/**
 	 * Initializes the widget.
