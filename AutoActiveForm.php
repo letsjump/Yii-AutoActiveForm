@@ -66,7 +66,7 @@ class AutoActiveForm extends CActiveForm
 	/**
 	 * @var array $extractFromHtmlOptions
 	 */
-	public $extractFromHtmlOptions = Array(
+	private $extractFromHtmlOptions = Array(
 		'errorHtmlOptions',
 		'labelHtmlOptions',
 		'jsOptions',

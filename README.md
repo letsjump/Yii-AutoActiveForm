@@ -84,14 +84,70 @@ Example:
 $form->autoTextField($model, 'gender', Array('labelHtmlOptions'=>Array('class'=>'required'));
 $form->autoTextField($model, 'age', Array('errorHtmlOptions'=>Array('class'=>'blink'));
 ```
-### Additional configuration settings
+### Additional field configuration settings
 In addition to `labelHtmlOptions` and `errorHtmlOptions`, you can pass some other array of parameters to `$htmlOptions`:
 - jsOptions: 	special options used in complex jQuery fields like TinyMce
 - roValue: 		read only value for this field
 - viewFile: 	alternative view just for this field
 
-### Set configurations globally
-...
+### Form configurations
+*AutoActiveForm* has some special configuration that changes the default behavior:
+- $viewPath: 			(string) path alias to the view's folder
+- $viewFile: 			(string) name of the default view
+- $accessControl: 		(bool) enable / disable access control
+- $addHtmlOptions:		(array) add an array of $htmlOptions to every field of the form
+- $allowAction:			(string) action to perform when access control is disabled. Usually the action that draw field with label and error
+- $showLabels:			(bool) enable / disable the label generator. Usually set to false when use placeholder
+- $labelToPlaceholder:	(bool) automatically generates a `placeholder=""` attribute with the label's text for every field
 
-### Set configurations locally (this form)
-...
+#### Set form configurations globally
+To set configurations globally, you'll have to act in the `init()` method of your `customForm` class:
+```php
+class CustomForm extends AutoActiveForm
+{
+	public function init() {
+    		// set here your global configurations
+			$this->formParameterName = your global value
+			parent::init();
+    	}
+    	...
+    }
+    ...
+}
+```
+
+#### Set form configurations locally (this form)
+To set a form parameter just for a form, there is an `$autoActiveForm` array to set in its form `$this->beginWidget()` configuration:
+```php
+$form=$this->beginWidget('application.components.customForm',
+		array(
+		'id'=>'my-automatic-form',
+		'autoActiveForm'=>Array(
+			// add here some configurations just for this form
+			'accessControl' => true,
+			...
+		),
+		'enableAjaxValidation'=>true,
+		'htmlOptions' => array(
+			'class'=>'stdform'),
+		)
+	);
+```
+If you also need to add some $htmlOptions to every field of this form, there is a special $addHtmlOptions parameter:
+```php
+$form=$this->beginWidget('application.components.customForm',
+		array(
+		'id'=>'my-coloured-form',
+		'autoActiveForm'=>Array(
+			// add here some configurations just for this form
+			'addHtmlOptions'=>Array('class'=>'green_border')
+		),
+		'enableAjaxValidation'=>true,
+		'htmlOptions' => array(
+			'class'=>'stdform'),
+		)
+	);
+```
+In the above example, every field of the generated form will have the html property `class="green-border"` automagically setted.
+## Access Control
+Works, but I'm writing some documentation
