@@ -96,7 +96,7 @@ In addition to `labelHtmlOptions` and `errorHtmlOptions`, you can pass some othe
 - `$viewFile`: 			(string) name of the default view
 - `$accessControl`: 		(bool) enable / disable access control
 - `$addHtmlOptions`:		(array) add an array of $htmlOptions to every field of the form
-- `$allowAction`:			(string) action to perform when access control is disabled. Usually the action that draw field with label and error
+- `$allowAction`:			(string) action to perform when access control is disabled. Usually the action `write` that draw a form field with its label and its error tag
 - `$showLabels`:			(bool) enable / disable the label generator. Usually set to false when use placeholder
 - `$labelToPlaceholder`:	(bool) automatically generates a `placeholder=""` attribute with the label's text for every field
 
