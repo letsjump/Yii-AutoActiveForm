@@ -67,7 +67,15 @@ $form->autoPassword($model, 'pass');
 $form->autoCheckBox($model, 'yes_no');
 $form->autoDropDownList($model, ',my_list', Array(1=>'One little indian', 2=>'Two little indians'));
 ```
-
+In addiction, it is strongly recommended to copy the *view* folder that contains your field template into your *theme* folder and configure `$this->viewPath` value according to its path:
+ ```php
+ class CustomForm extends AutoActiveForm
+ {
+ 	public function init() {
+     		$this->viewPath = 'my.theme.folder.my.autoactiveform-view.folder'
+ 	...
+ ```
+Doing so, your work will not be deleted after new **AutoActiveForm** plugin releases.
 ## Advanced fields configuration
 ### Add field HTML options
 As in CActiveForm you'll pass configurations using `$htmlOptions` array:
