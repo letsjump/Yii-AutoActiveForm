@@ -170,21 +170,25 @@ class myDatabaseTable extends CActiveRecord {
 	{
 		return Array(
 			'guest' => Array(
-				Array('my_field_a, my_field_b',
+				Array(
+					'my_field_a, my_field_b',
 					'read',
 					'on' => 'low-level-scenario'
 				),
 			),
 			'staffThatCanDoSomething' => Array(
-				Array('my_field_c, my_field_d, my_field_f',
+				Array(
+					'my_field_c, my_field_d, my_field_f',
 					'read',
 					'on' => 'next-level-scenario'
 				),
-				Array('my_field_a, my_field_b',
+				Array(
+					'my_field_a, my_field_b',
 					'write',
 					'on' => 'next-level-scenario'
 				),
-				Array('my_field_a, my_field_b',
+				Array(
+					'my_field_a, my_field_b',
 					'read',
 					'on' => 'some-other-scenario'
 				),
@@ -195,4 +199,4 @@ class myDatabaseTable extends CActiveRecord {
 }
 ```
 ### Access Control disclaimer
-Watch out: Even if a field is in *read mode* or in *hide mode*, this **don't prevent** that an advanced user / cracker is **passing parameters** to your action's request, so **YOU ARE ADVICED** to take appropriate actions to prevent this, EG: using model's filters depending on scenario, or *unsetting unused parameters from request before processing it*.
+Watch out: Even if a field is in *read mode* or in *hide mode*, this **don't prevent** that an advanced user / cracker is **passing parameters** to your action's request, so **YOU ARE ADVICED** to take an appropriate strategy to prevent this, like using model's filters depending on scenario, or *unsetting unused parameters from request* before processing it.
