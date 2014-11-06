@@ -166,28 +166,31 @@ In order to give access control to the fields, you must create the `getFieldAcce
 ```php
 class myDatabaseTable extends CActiveRecord {
 	...
-	return Array(
-		'guest' => Array(
-			Array('my_field_a, my_field_b',
-				'read',
-				'on' => 'low-level-scenario'
+	public function getFieldAccessRules()
+	{
+		return Array(
+			'guest' => Array(
+				Array('my_field_a, my_field_b',
+					'read',
+					'on' => 'low-level-scenario'
+				),
 			),
-		),
-		'staffThatCanDoSomething' => Array(
-			Array('my_field_c, my_field_d, my_field_f',
-				'read',
-				'on' => 'next-level-scenario'
+			'staffThatCanDoSomething' => Array(
+				Array('my_field_c, my_field_d, my_field_f',
+					'read',
+					'on' => 'next-level-scenario'
+				),
+				Array('my_field_a, my_field_b',
+					'write',
+					'on' => 'next-level-scenario'
+				),
+				Array('my_field_a, my_field_b',
+					'read',
+					'on' => 'some-other-scenario'
+				),
 			),
-			Array('my_field_a, my_field_b',
-				'write',
-				'on' => 'next-level-scenario'
-			),
-			Array('my_field_a, my_field_b',
-				'read',
-				'on' => 'some-other-scenario'
-			),
-		),
-	);
+		);
+	}
 	...
 }
 ```
