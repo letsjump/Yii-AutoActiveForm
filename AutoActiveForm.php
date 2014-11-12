@@ -65,14 +65,15 @@ class AutoActiveForm extends CActiveForm
 
 	/**
 	 * @var array $extractFromHtmlOptions
+	 *        key:    options to extract from
+	 *        value:    default value if not set
 	 */
 	private $extractFromHtmlOptions = Array(
-		'errorHtmlOptions',
-		'labelHtmlOptions',
-		'jsOptions',
-		'roValue',
-		'viewFile',
-		//'itemTemplate'
+		'errorHtmlOptions' => Array(),
+		'labelHtmlOptions' => Array(),
+		'jsOptions'        => Array(),
+		'roValue'          => null,
+		'viewFile'         => null,
 	);
 
 	/**
@@ -488,7 +489,7 @@ class AutoActiveForm extends CActiveForm
 		if (!empty($this->addHtmlOptions) && is_array($this->addHtmlOptions))
 			$htmlOptions = CMap::mergeArray($this->addHtmlOptions, $htmlOptions);
 
-		foreach($this->extractFromHtmlOptions as $option)
+		foreach($this->extractFromHtmlOptions as $option=>$defaultValue)
 		{
 			if(array_key_exists($option, $htmlOptions))
 			{
@@ -508,7 +509,7 @@ class AutoActiveForm extends CActiveForm
 			}
 			else
 			{
-				$this->params->$option = null;
+				$this->params->$option = $defaultValue;
 			}
 		}
 		$this->params->htmlOptions = $htmlOptions;
