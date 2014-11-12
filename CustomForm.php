@@ -23,7 +23,7 @@
  *
  */
 
-Yii::import('ext.autoActiveForm.AutoActiveForm');
+Yii::import('ext.AutoActiveForm.AutoActiveForm');
 
 class CustomForm extends AutoActiveForm
 {

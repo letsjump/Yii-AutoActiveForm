@@ -22,7 +22,7 @@ class AutoActiveForm extends CActiveForm
 	 * @var string $viewPath Path alias
 	 * to autoActiveForm view folder
 	 */
-	public $viewPath = 'ext.autoActiveForm.views';
+	public $viewPath = 'ext.AutoActiveForm.views';
 
 	/**
 	 * @var string $viewFile the name of the default view
