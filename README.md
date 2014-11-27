@@ -65,7 +65,7 @@ $form=$this->beginWidget('application.components.CustomForm',
 $form->autoTextField($model, 'surname');
 $form->autoPassword($model, 'pass');
 $form->autoCheckBox($model, 'yes_no');
-$form->autoDropDownList($model, ',my_list', Array(1=>'One little indian', 2=>'Two little indians'));
+$form->autoDropDownList($model, ',my_list', Array(1=>'One', 2=>'Two'));
 ```
 In addiction, it is strongly recommended to copy the *view* folder that contains your field template into your *theme* folder and configure `$this->viewPath` value according to its path:
  ```php
