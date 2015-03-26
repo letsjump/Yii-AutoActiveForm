@@ -626,7 +626,7 @@ class AutoActiveForm extends CActiveForm
 		{
 			$scenario = $model->getScenario();
 			$permissions = new stdClass();
-			foreach($model->$method as $rule=>$opeArray)
+			foreach($model->$methodName as $rule=>$opeArray)
 			{
 				if(
 					($rule != Yii::app()->user->guestName && Yii::app()->user->checkAccess($rule))
