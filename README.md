@@ -41,8 +41,8 @@ jQuery('#Model_cr_date').datepicker(jQuery.extend({showMonthAfterYear:false},jQu
 </script>
 ```
 ## Benefits
-+ 	It extends `CActiveForms` native method so you can invoke every field (like `$form->inputField`, 	`$form->passwordField`, `$form->checkbox` and so on...) just adding the `auto` prefix. Example: `$form->textArea(...)` becomes `$form->autoTextArea(...)`
-+ 	**It can be extended** so you can add configuration for third party *extension* like **Chosen** or **TinyMce** with just some line of 	code in your *CustomForm.php* configuration file
++ 	It extends `CActiveForms` native method so you can invoke any field (like `$form->inputField`, 	`$form->passwordField`, `$form->checkbox` and so on...) just adding the `auto` prefix. Example: `$form->textArea(...)` becomes `$form->autoTextArea(...)`
++ 	**It can be extended** so you can add configuration for third party *extension* like **Chosen** or **TinyMce** with just some line of code in your *CustomForm.php* configuration file
 + 	You can change configuration **globally** or locally: just **one form** or just **one field**.
 +	Field templates are mastered as normal **Yii view files**
 + 	You can also use `CActiveForm` native method, EG: `$form->label(...)`, `$form->textField(...)` and `$form->error(...)`
@@ -60,7 +60,7 @@ $form=$this->beginWidget('application.components.CustomForm',
 	)
 );
 ```
-- 	call every *CActiveForm field* method adding the `active` prefix
+- 	call any *CActiveForm field* method adding the `active` prefix
 ```php
 $form->autoTextField($model, 'surname');
 $form->autoPassword($model, 'pass');
